@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Ayam Petok</title>
+		<title>360 Virtual Tour</title>
 		<!--projectdescription--><meta name="description" content="Baruuuuurururuurru"><!--projectdescription-end-->
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta charset="utf-8">
@@ -99,7 +99,8 @@
 		<div id="tmp">
 			<div style="width: 100%; height: 100%; overflow: hidden; overflow-y: auto; box-sizing: border-box; position: relative;" id="tmpcontent"></div>
 			<div class="mediaclosebutton" onclick="hideTemp()"><i class="fa fa-times-circle"></i></div>
-		</div>
+		</div>
+
 
 		<div id="loading" class="fullwrapper" style="display: table; width: 100%; height: 100%;">
     		<div style="display: table-cell; vertical-align: middle; text-align: center; color: white; font-size: 30px; padding: 50px;">
@@ -108,16 +109,21 @@
     	</div>
 		
     	<script>
-			
+		document.addEventListener("DOMContentLoaded", function() {
+  document.getElementsByTagName('audio')[0].play();
+});
             var container = document.querySelector( '#container' );
 			/*panolens*/
-var viewer = new PANOLENS.Viewer( { container: container , controlBar: false,  output: 'console' , autoHideInfospot: false, } );
-/*panolens-end*/
+
+var viewer = new PANOLENS.Viewer( { container: container , controlBar: false,  output: 'console' , autoHideInfospot: false, } );
+
+/*panolens-end*/
 			
 			viewer.addUpdateCallback(function(){});
 			
 			/*panoramas*/
-var depan = new PANOLENS.ImagePanorama( "panoramas/depan.jpg" );
+
+var depan = new PANOLENS.ImagePanorama( "panoramas/depan.jpg" );
 			depan.addEventListener('progress', function(e){
 				$("#loading").show();
 			});
@@ -127,15 +133,22 @@
 			depan.addEventListener('click', function(e){
 			});
 
-var infospotdepan0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+
+var infospotdepan0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
 					infospotdepan0.position.set( 4039.44, -340.99, -2923.05 );
 					depan.add(infospotdepan0);
-infospotdepan0.addEventListener('click', function(){
-ChangePanorama('depan');
-ChangePanorama('ruangan');
-});
-viewer.add( depan );
-var ruangan = new PANOLENS.ImagePanorama( "panoramas/ruangan.jpg" );
+
+infospotdepan0.addEventListener('click', function(){
+
+ChangePanorama('depan');
+
+ChangePanorama('ruangan');
+
+});
+
+viewer.add( depan );
+
+var ruangan = new PANOLENS.ImagePanorama( "panoramas/ruangan.jpg" );
 			ruangan.addEventListener('progress', function(e){
 				$("#loading").show();
 			});
@@ -145,20 +158,30 @@
 			ruangan.addEventListener('click', function(e){
 			});
 
-var infospotruangan0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+
+var infospotruangan0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
 					infospotruangan0.position.set( -2774.21, -385.01, -4134.04 );
 					ruangan.add(infospotruangan0);
-infospotruangan0.addEventListener('click', function(){
-ChangePanorama('depan');
-});
-var infospotruangan1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+
+infospotruangan0.addEventListener('click', function(){
+
+ChangePanorama('depan');
+
+});
+
+var infospotruangan1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
 					infospotruangan1.position.set( -3755.92, -339.24, 3274.86 );
 					ruangan.add(infospotruangan1);
-infospotruangan1.addEventListener('click', function(){
-ChangePanorama('kamar');
-});
-viewer.add( ruangan );
-var kamar = new PANOLENS.ImagePanorama( "panoramas/kamar.jpg" );
+
+infospotruangan1.addEventListener('click', function(){
+
+ChangePanorama('kamar');
+
+});
+
+viewer.add( ruangan );
+
+var kamar = new PANOLENS.ImagePanorama( "panoramas/kamar.jpg" );
 			kamar.addEventListener('progress', function(e){
 				$("#loading").show();
 			});
@@ -168,16 +191,23 @@
 			kamar.addEventListener('click', function(e){
 			});
 
-var infospotkamar0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+
+var infospotkamar0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
 					infospotkamar0.position.set( -4083.56, -1244.24, 2586.55 );
 					kamar.add(infospotkamar0);
-infospotkamar0.addEventListener('click', function(){
-ChangePanorama('ruangan');
-});
-viewer.add( kamar );
-$(document).ready(function(){ ChangePanorama('ruangan '); });
 
-/*panoramas-end*/
+infospotkamar0.addEventListener('click', function(){
+
+ChangePanorama('ruangan');
+
+});
+
+viewer.add( kamar );
+
+$(document).ready(function(){ ChangePanorama('ruangan '); });
+
+
+/*panoramas-end*/
             
 			
 			function hideTemp(){
