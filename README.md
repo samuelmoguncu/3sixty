@@ -1,2 +1,2 @@
 # 3sixty
-Visite Example https://samuelmoguncu.github.io/3sixty/
+Example : https://samuelmoguncu.github.io/3sixty/
